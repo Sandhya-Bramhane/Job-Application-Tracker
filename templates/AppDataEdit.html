@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="/static/AppDataEdit.css">
+    <link rel="stylesheet" href="/static/App.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/appform" class="navbar-logo">Job Tracker</a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar-menu">
+        <li class="navbar-item"><a href="/appform">Add Application</a></li>
+        <li class="navbar-item"><a href="/appformdata">View Applications</a></li>
+        <li class="navbar-item"><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<h1>Job Application Tracker</h1>
+<div class="con">
+    <form action="/appdataedit" method="get">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="input-group">
+                <label for="sr">Sr.</label>
+                <input id="sr" type="number" name="Number" value="{{ n1 }}" required />
+            </div>
+            <div class="input-group">
+                <label for="jobRole">Job Role</label>
+                <input id="jobRole" type="text" name="JobR" value="{{ jr1 }}" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="jobLocation">Job Location</label>
+                <input id="jobLocation" type="text" name="JobL" value="{{ jl1 }}" />
+            </div>
+            <div class="input-group">
+                <label for="source">Source</label>
+                <input id="source" type="text" name="source" value="{{ so1 }}" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="jobType">Job Type</label>
+                <input id="jobType" type="text" name="JobT" value="{{ jt1 }}" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="contact">Contact</label>
+                <input id="contact" type="number" name="contact" value="{{ co1 }}" />
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" value="{{ em1 }}" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="phoneInterview">Phone Interview</label>
+                <select id="phoneInterview" name="phoneI">
+                    <option value="" {% if not pi1 %}selected{% endif %} disabled>Select Status</option>
+                    <option value="None" {% if pi1 == 'None' %}selected{% endif %}>None</option>
+                    <option value="Yes" {% if pi1 == 'Yes' %}selected{% endif %}>Yes</option>
+                    <option value="No" {% if pi1 == 'No' %}selected{% endif %}>No</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="" {% if not st1 %}selected{% endif %} disabled>Select Status</option>
+                    <option value="None" {% if st1 == 'None' %}selected{% endif %}>None</option>
+                    <option value="Rejected" {% if st1 == 'Rejected' %}selected{% endif %}>Rejected</option>
+                    <option value="Satisfactory" {% if st1 == 'Satisfactory' %}selected{% endif %}>Satisfactory</option>
+                    <option value="On Hold" {% if st1 == 'On Hold' %}selected{% endif %}>On Hold</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="firstInterview">1st Interview Date</label>
+                <input id="firstInterview" type="text" name="firstInt" value="{{fi1}}" />
+            </div>
+            <div class="input-group">
+                <label for="firstInterviewStatus">1st Interview Status</label>
+                <select id="firstInterviewStatus" name="firstIntSta">
+                    <option value="" {% if not fis1 %}selected{% endif %} disabled>Select Status</option>
+                    <option value="None" {% if fis1 == 'None' %}selected{% endif %}>None</option>
+                    <option value="Cleared" {% if fis1 == 'Cleared' %}selected{% endif %}>Cleared</option>
+                    <option value="Rejected" {% if fis1 == 'Rejected' %}selected{% endif %}>Rejected</option>
+                    <option value="On Hold" {% if fis1 == 'On Hold' %}selected{% endif %}>On Hold</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="secondInterview">2nd Interview Date</label>
+                <input id="secondInterview" type="text" name="secondInt" value="{{si1}}" />
+            </div>
+            <div class="input-group">
+                <label for="secondInterviewStatus">2nd Interview Status</label>
+                <select id="secondInterviewStatus" name="secondIntSta">
+                    <option value="" {% if not sis1 %}selected{% endif %} disabled>Select Status</option>
+                    <option value="None" {% if sis1 == 'None' %}selected{% endif %}>None</option>
+                    <option value="Cleared" {% if sis1 == 'Cleared' %}selected{% endif %}>Cleared</option>
+                    <option value="Rejected" {% if sis1 == 'Rejected' %}selected{% endif %}>Rejected</option>
+                    <option value="On Hold" {% if sis1 == 'On Hold' %}selected{% endif %}>On Hold</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="finalInterview">Final Interview Date</label>
+                <input id="finalInterview" type="text" name="finalInt" value="{{fii1}}" />
+            </div>
+            <div class="input-group">
+                <label for="finalInterviewStatus">Final Interview Status</label>
+                <select id="finalInterviewStatus" name="finalIntSta">
+                    <option value="" {% if not fiis1 %}selected{% endif %} disabled>Select Status</option>
+                    <option value="None" {% if fiis1 == 'None' %}selected{% endif %}>None</option>
+                    <option value="Hired" {% if fiis1 == 'Hired' %}selected{% endif %}>Hired</option>
+                    <option value="Rejected" {% if fiis1 == 'Rejected' %}selected{% endif %}>Rejected</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group">
+                <label for="dateOfJoining">Date Of Joining Date</label>
+                <input id="dateOfJoining" type="text" name="datejoin" value="{{dj1}}" />
+            </div>
+            <div class="input-group">
+                <label for="ctc">CTC</label>
+                <input id="ctc" type="number" name="ctc" value="{{ cc1 }}" />
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <button type="submit" class="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="/static/header.js"></script>
+</body>
+</html>

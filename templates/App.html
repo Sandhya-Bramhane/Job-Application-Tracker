@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="/static/App.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/appform" class="navbar-logo">Job Tracker</a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar-menu">
+      <li class="navbar-item"><a href="/appform">Add Application</a></li>
+      <li class="navbar-item"><a href="/appformdata">View Applications</a></li>
+      <li class="navbar-item"><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+<h1>Job Application Tracker</h1>
+<div class="con">
+
+  <form action="" method="post">
+
+    {% csrf_token %}
+
+    <div class="form-row">
+      <div class="input-group">
+        <label for="sr">Sr.</label>
+        <input id="sr" type="number" name="Number"/>
+      </div>
+      <div class="input-group">
+        <label for="jobRole">Job Role</label>
+        <input id="jobRole" type="text" name="JobR" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="jobLocation">Job Location</label>
+        <input id="jobLocation" type="text" name="JobL" />
+      </div>
+      <div class="input-group">
+        <label for="source">Source</label>
+        <input id="source" type="text" name="source"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="jobType">Job Type</label>
+        <input id="jobType" type="text" name="JobT" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="contact">Contact</label>
+        <input id="contact" type="number" name="contact" />
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="phoneInterview">Phone Interview</label>
+        <select id="phoneInterview" name="phoneI">
+          <option value="" disabled selected>Select Status</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option value="" disabled selected>Select Status</option>
+          <option>Rejected</option>
+          <option>Satisfactory</option>
+          <option>On Hold</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="firstInterview">1st Interview Date</label>
+        <input id="firstInterview" type="text" name="firstInt" />
+      </div>
+      <div class="input-group">
+        <label for="firstInterviewStatus">1st Interview Status</label>
+        <select id="firstInterviewStatus" name="firstIntSta">
+          <option value="" disabled selected>Select Status</option>
+          <option>Cleared</option>
+          <option>Rejected</option>
+          <option>On Hold</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="secondInterview">2nd Interview Date</label>
+        <input id="secondInterview" type="text" name="secondInt" />
+      </div>
+      <div class="input-group">
+        <label for="secondInterviewStatus">2nd Interview Status</label>
+        <select id="secondInterviewStatus" name="secondIntSta">
+          <option value="" disabled selected>Select Status</option>
+          <option>Cleared</option>
+          <option>Rejected</option>
+          <option>On Hold</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="finalInterview">Final Interview Date</label>
+        <input id="finalInterview" type="text" name="finalInt" />
+      </div>
+      <div class="input-group">
+        <label for="finalInterviewStatus">Final Interview Status</label>
+        <select id="finalInterviewStatus" name="finalIntSta">
+          <option value="" disabled selected>Select Status</option>
+          <option>Hired</option>
+          <option>Rejected</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="input-group">
+        <label for="dateOfJoining">Date Of Joining Date</label>
+        <input id="dateOfJoining" type="text" name="datejoin" />
+      </div>
+      <div class="input-group">
+        <label for="ctc">CTC</label>
+        <input id="ctc" type="number" name="ctc" />
+      </div>
+    </div>
+    <div class="form-row">
+      <button type="submit" class="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script src="/static/header.js"></script>
+</body>
+</html>

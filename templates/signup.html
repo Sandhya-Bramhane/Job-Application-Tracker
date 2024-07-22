@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Job Application Tracker</title>
+    <link rel="stylesheet" href="/static/login_sign.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">Job Tracker</a>
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-item"><a href="/">Home</a></li>
+                <li class="navbar-item"><a href="/login">Login</a></li>
+                <li class="navbar-item"><a href="/signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="con">
+        <h1>Sign Up</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input id="username" type="text" name="username" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input id="confirm_password" type="password" name="confirm_password" required />
+                </div>
+            </div>
+            {% if message %}
+            <div class="form-row">
+                <p style="color: red;">{{ message }}</p>
+            </div>
+            {% endif %}
+            <div class="form-row">
+                <button type="submit" class="submit">Sign Up</button>
+            </div>
+        </form>
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+    <script src="/static/header.js"></script>
+</body>
+</html>

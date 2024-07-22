@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="/static/App.css">
+  <link rel="stylesheet" href="/static/AppData.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/appform" class="navbar-logo">Job Tracker</a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="navbar-menu">
+      <li class="navbar-item"><a href="/appform">Add Application</a></li>
+      <li class="navbar-item"><a href="/appformdata">View Applications</a></li>
+      <li class="navbar-item"><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+<h1>Job Application Tracker</h1>
+<div class="con">
+  <table class="job-table">
+    <thead>
+      <tr>
+        <th>Sr.</th>
+        <th>Job Role</th>
+        <th>Job Location</th>
+        <th>Source</th>
+        <th>Job Type</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Phone Interview</th>
+        <th>Status</th>
+        <th>1st Interview</th>
+        <th>1st Interview Status</th>
+        <th>2nd Interview</th>
+        <th>2nd Interview Status</th>
+        <th>Final Interview</th>
+        <th>Final Interview Status</th>
+        <th>Date Of Joining</th>
+        <th>CTC</th>
+        <th style="color: yellow;">Edit</th>
+        <th style="color: red;">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in store %}
+      <tr>
+        <td>{{x.Number}}</td>
+        <td>{{x.JobRole}}</td>
+        <td>{{x.JobLoc}}</td>
+        <td>{{x.Source}}</td>
+        <td>{{x.JobTy}}</td>
+        <td>{{x.Contact}}</td>
+        <td>{{x.Email}}</td>
+        <td>{{x.phone_interview}}</td>
+        <td>{{x.status}}</td>
+        <td>{{x.first_interview}}</td>
+        <td>{{x.first_interview_status}}</td>
+        <td>{{x.second_interview}}</td>
+        <td>{{x.second_interview_status}}</td>
+        <td>{{x.final_interview}}</td>
+        <td>{{x.final_interview_status}}</td>
+        <td>{{x.date_of_joining}}</td>
+        <td>{{x.ctc}}</td>
+
+        <td style="color: yellow;"><a href="/appdatasendtochnage?Num={{ x.Number }}&jr={{ x.JobRole }}&jl={{ x.JobLoc }}&so={{x.Source }}&jt={{ x.JobTy}}&co={{ x.Contact}}&em={{ x.Email}}&pi={{ x.phone_interview}}&st={{x.status}}&fi={{ x.first_interview}}&fis={{ x.first_interview_status}}&si={{ x.second_interview}}&sis={{ x.second_interview_status }}&fii={{ x.final_interview }}&fiis={{ x.final_interview_status }}&dj={{ x.date_of_joining }}&cc={{ x.ctc }}">Edit</a></td>
+
+        <td style="color: red;"><a href="/appdatadelete?Number={{x.Number}}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script src="/static/header.js"></script>
+</body>
+</html>
+
